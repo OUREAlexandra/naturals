@@ -10,6 +10,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -31,8 +33,13 @@ class ProductCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name', 'Produit'),
+            TextField::new('name', 'Nom'),
+            NumberField::new('quantity', 'Quantité'),
+            NumberField::new('price', 'Prix'),
+            TextField::new('description', 'Description'),
+            BooleanField::new('is_activated', 'Activé'),
             AssociationField::new('category', 'Catégorie'),
+            TextField::new('slug', 'Slug'),
             ImageField::new('imageFile', 'Image')
                 ->setFormType(VichImageType::class)
                 ->onlyOnForms(),
