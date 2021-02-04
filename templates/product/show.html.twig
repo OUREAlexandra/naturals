@@ -3,6 +3,7 @@
 {% block title %}{{product.name}}{% endblock %}
 {% block body %}
 <div class="container container-one-product mt-5">
+    <a href="javascript:history.go(-1)" class="return-show previous-page">Retour à la page précédente</a>
     <div class="row one-product-row">
         <div class="container-fluid news-container">
             <div class="col-lg-6">
@@ -26,7 +27,7 @@
                             <p class="product-description text-center">{{ product.description }}</p>
                         </div>
                         <div class="text-center">
-                            <a href="" class="btn-filtre btn text-center nav-item nav-link-button bg-warning mb-3">
+                            <a href="{{path('cart_add', {'id' : product.id})}}" class="btn-filtre btn text-center nav-item nav-link-button bg-warning mb-3">
                                 Ajouter<i class="fab fa-opencart text-dark"></i></a>
                         </div>
                     </div>

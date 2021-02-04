@@ -26,9 +26,47 @@
         <li class="nav-item">
           <a class="nav-link text-warning" href="#">Nous contacter</a>
         </li>
+        {% if is_granted('ROLE_BUYER') %}
         <li class="nav-item">
-          <a class="nav-link text-warning" href="#"><i class="fab fa-opencart"></i></a>
+          {% if app.session.get('panier') %}
+          <a class="nav-link text-warning" href="{{path('cart_index')}}">
+            <i class="fab fa-opencart"></i>
+            <span class="badge badge-danger color-badge">{{ app.session.get('count') }}</span>
+          </a>
+          {% else %}
+          <a class="nav-link text-warning" href="{{path('cart_index')}}">
+            <i class="fab fa-opencart"></i>
+          </a>
+          {% endif %}
         </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-item dropdown-toggle btn btn-light text-center nav-link-button" id="dropdown1"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-user"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right text-center">
+            <a href="" class="my-account">Mon compte</a>
+            <br>
+            {% if is_granted('ROLE_BUYER') %}
+            <a href="" class="my-account">Mes commandes</a>
+            {% endif %}
+            <br>
+            <a href="{{path('app_logout')}}" class="my-account">
+              <i class="fas fa-sign-out-alt"></i>
+              Se déconnecter</a>
+          </div>
+        </li>
+        {% elseif is_granted('ROLE_ADMIN') %}
+        <a href="{{path('admin')}}" class="btn btn-light text-center nav-item nav-link-button mr-1">
+          <i class="far fa-user"></i>
+          Administration</a>
+        <a href="{{path('app_logout')}}" class="nav-link text-warning">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+        {% else %}
+        <a href="{{path('app_login')}}" class="btn btn-light text-center nav-item nav-link-button mr-1">Connectez-vous</a>
+        <a href="{{path('app_register')}}" class="btn btn-light text-center nav-item nav-link-button mobile-nav-margin">Inscrivez-vous</a>
+        {% endif %}
       </ul>
     </div>
   </div>
