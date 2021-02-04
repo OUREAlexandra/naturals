@@ -32,8 +32,10 @@
     {% for article in articles %}
     <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 my-3">
         <div class="product-list-left-effect">
+            <a href="{{path ('article_show', {'slug': article.slug})}}" class="link-for-show">
             <img src="/uploads/images/{{ article.image }}" class="img-fluid row-news img-responsive"
                 alt="{{ article.title }}">
+            </a>
             <div class="product-overlay">
                 <h3 class="news-overlay text-center">{{ article.title }}</h3>
                 <p class="text-content mt-4 text-center">{{ article.content|u.truncate(143, '...') }}</p>

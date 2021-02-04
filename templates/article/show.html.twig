@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block metadescription %}{{article.title |slice(0, 200)}}{% endblock %}
+{% block title %}
+	{{ article.title }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-3 mb-3 image-container">
+    <div class="row d-flex justify-content-center">
+        <img src="/uploads/images/{{ article.image }}" class="img-fluid" alt="{{ article.title }}" width="100%">
+        <div class="text-center text-article">
+            <h1 class="text-warning ml-4" style="font-size: 60px">{{ article.title }}</h1>
+            <p style="font-size: 20px" class="text-light mt-5 mb-5 text-center">{{ article.content }}</p>
+            <p class="mr-2 text-right text-light" style="font-size: 20px">"{{ article.quote }}"</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

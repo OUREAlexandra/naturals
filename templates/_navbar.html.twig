@@ -12,11 +12,11 @@
             data-bs-toggle="dropdown" aria-expanded="false">
             Nos conseils
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {# <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             {% for article in articles %}
-            <li><a class="dropdown-item text-warning title-navbar" href="#">{{ article.title|u.truncate(30, '...') }}</a></li>
+            <li><a class="dropdown-item text-warning title-navbar" href="{{path ('article_show', {'slug': article.slug})}}"></a>{{ article.title|u.truncate(30, '...') }}</a></li>
             {% endfor %}
-          </ul>
+          </ul> #}
         </li>
         <li class="nav-item">
           <a class="nav-link active text-warning" aria-current="page" href="#">Nos produits</a>
