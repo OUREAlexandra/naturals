@@ -1,47 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Yummy cupcakes{% endblock %}
+{% block title %}Ever Naturals{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
-    <form id="content">
-  <input type="text" name="input" class="input">
-  <button type="reset" class="search"></button>
-</form>
-</div>
-<div class="container-fluid mt-5">
-    <div class="row align-items-center">
-        <div class="col-lg-7 col-md-12 col-sm-10 left-block">
-            <img src="https://cdn.pixabay.com/photo/2014/03/04/15/36/cupcake-279523_960_720.jpg" class="img-fluid" alt="les meilleurs cupcakes de Paris">
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-10 pl-5 right-block">
-            <h1 class="text-center block-title">À CHAQUE ENVIE<br>SON CUPCAKE</h1>
-            <p class="text-center mt-3 block-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, cupiditate? Corporis quas est, hic autem maxime voluptatem dignissimos odit, a harum magnam officiis sunt! Et autem maxime quasi delectus esse!</p>
-            <button type="button" class="btn btn-outline-danger btn-lg mt-3 all-buttons text-dark">Nos cupcakes</button>
+
+<div class="container mt-3 mb-3 image-container">
+    <div class="row d-flex justify-content-center">
+        <img src="https://i.ibb.co/jkPwj9Z/Capture-du-2021-02-03-16-03-59.png" class="img-fluid" alt="..." width="100%">
+        <div class="text text-warning text-center">
+            <h1>LES SECRETS DU <br>CHEVEU NATUREL</h1>
         </div>
     </div>
 </div>
-<div class="bg-section p-5 mt-5">
-    <p class="text-center pb-5 baseline-home block-title">Nos yummies catégories</p>
-    <div class="row pt-5">
-        {% for category in categories %}
-        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 mx-auto">
-            <div class="card-border">
-                <a href="" class="link-for-show-img">
-                    <img src="{{category.url}}"
-                        class="card-img-top" alt="">
-                    <div class="text-right color-provider mr-3">
-                        <button class="btn pl-3 pr-3">
-                            <h3 class="border-style-home style-home-name p-3 ">
-                                {{category.name}}
-                            </h3>
-                        </button>
-                    </div>
-                </a>
+<br>
+<br>
+<hr />
+<div class="container">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12 my-2">
+            <h2 class="news-title text-center text-warning"><span class="black-text">Ever Naturals</span> CONSEILS HEBDO</h2>
+
+            <p class="news-text text-center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi saepe iste vitae illum,
+                blanditiis aliquid dicta quia alias esse asperiores temporibus quisquam maiores!
+                Beatae, veniam ipsam. Delectus itaque earum dicta.</p>
+        </div>
+    </div>
+    <div class="container-fluid news-container">
+    {% for article in articles %}
+    <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 my-3">
+        <div class="product-list-left-effect">
+            <img src="/uploads/images/{{ article.image }}" class="img-fluid row-news img-responsive"
+                alt="{{ article.title }}">
+            <div class="product-overlay">
+                <h3 class="news-overlay text-center">{{ article.title }}</h3>
+                <p class="text-content mt-4 text-center">{{ article.content|u.truncate(143, '...') }}</p>
+                <p class="text-quote mt-4 text-right">" {{ article.quote }}"</p>
             </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
-
+</div>
 {% endblock %}

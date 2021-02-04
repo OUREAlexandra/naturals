@@ -8,6 +8,7 @@ use App\Entity\Invoice;
 use App\Entity\Product;
 use App\Entity\Shipping;
 use App\Entity\User;
+use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -37,6 +38,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Gestion des produits');
         yield MenuItem::linkToCrud('Produits', 'fas fa-cookie-bite', Product::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-clipboard-list', Category::class);
+        yield MenuItem::linkToCrud('Articles', 'far fa-newspaper', Article::class);
         yield MenuItem::section('Gestion de la clientèle');
         yield MenuItem::linkToCrud('Clients', 'far fa-address-book', User::class);
         yield MenuItem::linkToCrud('Commandes', 'fas fa-list', Command::class);
