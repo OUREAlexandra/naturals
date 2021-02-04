@@ -174,11 +174,13 @@ a:link{
 .product-price{
     font-weight: bold;
     font-family: 'Dancing Script', cursive;
+    color: inherit;
 }
   
 .product-description{
     font-family: 'Lobster', cursive;
     font-size: 15px;
+    color: inherit;
 }
 
 .btn-filtre{
@@ -193,9 +195,19 @@ a:link{
 .one-product{
     box-shadow: 2px 10px 13px -7px #000000, 3px 3px 3px -1px rgba(0,0,0,0);
 }
+
+.previous-page{
+    font-family: 'Lobster', cursive;
+    font-size: 15px;
+    color: inherit;
+}
 /*FIN ONE PRODUCT*/
 
-
+/*NAVBAR MY ACCOUNT*/
+.my-account{
+    color: inherit;
+}
+/*FIN NAVBAR MY ACCOUNT*/
 
 
 /*SEARCH BOX*/

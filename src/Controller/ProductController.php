@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ProductController extends AbstractController
 {
@@ -36,7 +37,7 @@ class ProductController extends AbstractController
             // Define the page parameter
             $request->query->getInt('page', 1),
             // Items per page
-            12
+            6
         );
 
         if ($searchForm->isSubmitted() && $searchForm->isValid()) {
@@ -51,6 +52,7 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/produits/{slug}", name="product_show")
+     * @ParamConverter("product", class="App\Entity\Product", options={"mapping": {"slug": "slug"}})
      */
     public function showProduct(Product $product, ProductRepository $productRepository): Response
     {

@@ -44,7 +44,7 @@
                 {% for product in products %}
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 my-3 mt-4">
                     <div class="card-wrapper">
-                        <img src="/uploads/images/{{ product.image }}" class="img-fluid" id="profil" alt="{{ product.name }}" width="75%">
+                        <img src="/uploads/images/{{ product.image }}" style="width: 18rem;" class="img-fluid text-center" id="profil" alt="{{ product.name }}" width="75%">
                         <div class="text-left">
                             <button class="btn border-pres pl-3 pr-3">
                                 <h4>
@@ -62,7 +62,7 @@
                                 <p class="product-description text-right">{{product.description|u.truncate(60, '...')
                                     }}</p>
                                 <div class="text-left">
-                                    <a href=""
+                                    <a href="{{path('cart_add', {'id' : product.id})}}"
                                         class="btn-filtre btn text-center nav-item nav-link-button bg-warning">
                                         Ajouter<i class="fab fa-opencart text-dark"></i></a>
                                 </div>
